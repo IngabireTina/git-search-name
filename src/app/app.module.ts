@@ -7,6 +7,7 @@ import { FindFormComponent } from './find-form/find-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RepoComponent } from './repo/repo.component';
 import { UserComponent } from './user/user.component';
+import { DatePipePipe } from './date-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UserComponent } from './user/user.component';
     FindFormComponent,
     NavbarComponent,
     RepoComponent,
-    UserComponent
+    UserComponent,
+    DatePipePipe
   ],
   imports: [
     BrowserModule,

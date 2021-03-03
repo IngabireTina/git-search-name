@@ -44,7 +44,7 @@ export class UserService {
     });
   }
 
-getRepo(searchName: string){
+getRepo(searchName){
   interface Repo{
     name:string;
     html_url:string;

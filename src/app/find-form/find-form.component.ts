@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./find-form.component.css']
 })
 export class FindFormComponent implements OnInit {
-  searchName:any[] = [];
+  searchName:string = "";
   @Output() searchOutput = new EventEmitter<any>()
 
   constructor() { }
@@ -15,7 +15,7 @@ export class FindFormComponent implements OnInit {
   }
   search(){
     this.searchOutput.emit(this.searchName);
-    this.searchName = [];
+    this.searchName = "";
   }
 
 

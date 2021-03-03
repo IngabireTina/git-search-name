@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../user';
+import { Repo } from '../repo';
+import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-user',
@@ -6,10 +10,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  user: User;
+  repo: Repo;
+  constructor(public userService: UserService, private repoService: UserService) { }
 
-  constructor() { }
+  searchs(searchName: string) {
+    this.userService.searchUSer(searchName).then(
+      (success)=>{
+        this.user = this.userService.findUser;
+      },
+      (error)=>{
+        console.log(error)
+      }
+    );
+    this.repoService.getRepo(searchName).then(
+      (results)=>{
+        this.repo =this.repoService.Repos
+        console.log(this.repo);
+      },
+      (error)=>{
+        console.log(error);
+      }
+    );
+}
+
 
   ngOnInit(): void {
+    this.searchs('IngabireTina');
   }
 
 }

@@ -11,7 +11,7 @@ export class RepoComponent implements OnInit {
   repo: Repo;
   constructor(public repoService: UserService) { }
 
-  repoSearch(searchName){
+  repoSearch(searchName: string){
     this.repoService.getRepo(searchName).then(
       (results)=>{
         this.repo =this.repoService.Repos

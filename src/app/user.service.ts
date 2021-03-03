@@ -29,7 +29,7 @@ export class UserService {
       created_at:Date;
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       this.http.get<Responce>('https://api.github.com/users/'+searchName+'?access_token='+environment.apiKey).toPromise().then(
         (result) => {
           this.findUser = result;
@@ -44,7 +44,7 @@ export class UserService {
     });
   }
 
-getRepo(searchName){
+getRepo(searchName: string){
   interface Repo{
     name:string;
     html_url:string;
@@ -54,7 +54,7 @@ getRepo(searchName){
     language:string;
     created_at:Date;
   }
-  return new Promise((resolve,reject)=>{
+  return new Promise<void>((resolve,reject)=>{
     this.http.get<Repo>('https://api.github.com/users/'+searchName+"/repos?order=created&sort=asc?access_token="+environment.apiKey).toPromise().then(
       (results) => {
         this.Repos = results;
